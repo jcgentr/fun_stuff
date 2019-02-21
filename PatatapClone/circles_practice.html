@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circles</title>
+	<script type="text/javascript" src="paper-full.js"></script>
+	<link rel="stylesheet" type="text/css" href="circles.css">
+	<!-- Define inlined PaperScript associate it with myCanvas -->
+	<script type="text/paperscript" canvas="myCanvas">
+		var myStyle = {
+			strokeColor: '#00ffff',
+			fillColor: '#000000',
+			strokeWidth: 2
+		};
+
+		// my solution
+		for(var i=1;i<601;i++){
+			var y = Math.ceil(i/25);
+			var x = i%25 + 1;
+			// create a circle
+			var myCircle = new Path.Circle(new Point(x*35, y*35), 8);
+			myCircle.style = myStyle;
+		}
+
+		// Colt's solution
+		for(var x=0;x<1000;x+=100){
+			for(var y=0;y<1000;y+=100){
+				new Path.Circle(new Point(x,y), 8).fillColor = "yellow";
+			}
+		}
+
+		// create a circle
+		// var myCircle = new Path.Circle(new Point(100, 70), 25);
+		// myCircle.fillColor = 'blue';
+
+		// var myCircle2 = new Path.Circle(new Point(250, 90), 10);
+		// myCircle2.fillColor = 'blue';
+	</script>
+</head>
+<body>
+	<!-- id needs to match canvas name in script tag -->
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
